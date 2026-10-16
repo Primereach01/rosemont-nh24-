@@ -2,6 +2,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Rosemont Residency NH-24 | Apnaa Home</title>
 <meta name="description" content="Rosemont Residency, Aditya World City NH-24 Ghaziabad – pre-launch 3 BHK & 3 BHK + Servant apartments, 1915–2230 sq.ft., BSP ₹7,999/sq.ft., from ₹1.54 Cr*. RERA UPRERAPRJ242904/05/2026.">
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2211139059463159');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2211139059463159&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap">
 <style>
@@ -525,6 +542,7 @@ var WA_NUMBER = '919999076595';
 
     if(!LEAD_ENDPOINT){
       ok.className='form-ok'; ok.hidden=false;
+      if(window.fbq) fbq('track','Lead',{content_name:'Rosemont Residency NH-24',status:lead.buyingStatus});
       ok.innerHTML='<b>Almost done.</b> Your enquiry has not been sent yet. Tap the button below to send it to us on WhatsApp, or call <b>99990 76595</b>.<br><a class="btn" id="f-wa" target="_blank" rel="noopener" href="'+waLink(text)+'">Send on WhatsApp</a>';
       return;
     }
@@ -543,6 +561,11 @@ var WA_NUMBER = '919999076595';
         ok.innerHTML='<b>We could not send your enquiry right now.</b> Please send it on WhatsApp instead, or call <b>99990 76595</b>.<br><a class="btn" target="_blank" rel="noopener" href="'+waLink(text)+'">Send on WhatsApp</a>';
       })
       .then(function(){btn.disabled=false; btn.textContent='Send Enquiry'});
+  });
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[href^="tel:"],a[href*="wa.me"]');
+    if(!a||!window.fbq||a.id==='f-wa') return;
+    fbq('track','Contact',{method:a.href.indexOf('tel:')===0?'call':'whatsapp'});
   });
   var lb=document.getElementById('lightbox'),lbi=document.getElementById('lb-img');
   document.querySelectorAll('.fp-open').forEach(function(b){b.addEventListener('click',function(){var im=document.getElementById(b.getAttribute('data-full'));lbi.src=im.src;lbi.alt=im.alt;lb.hidden=false;document.getElementById('lb-close').focus()})});
